@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>engineer SNS</title>
+    <link rel="stylesheet" type="text/css" href="css/sample.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/api_sample.js"></script>
+    <script type="text/javascript" src="js/sns.js"></script>
+  </head>
+  <body>
+
+    <h1>Engineer SNS</h1>
+    <p>
+      <label for="iniad-id">アカウント</label>
+      <input id="iniad-id" type="text">
+    </p>
+    <p>
+      <label for="iniad-pw">パスワード</label>
+      <input id="iniad-pw" type="password">
+    </p>
+
+    <h2>投稿内容</h2>
+
+    <p>
+      <label for="room-number">教室番号</label>
+      <input id="room-number" type="text">
+      <button onclick="getRoomStatus()">教室の情報取得</button>
+    </p>
+
+    <div class="result">
+      <p>
+        API呼び出し結果: <span id="monitoring-result"></span> <br />
+        温度: <span id="room-temperature"></span> <br />
+        湿度: <span id="room-humidity"></span> <br />
+        気圧: <span id="room-airpressure"></span> <br />
+        照度: <span id="room-illuminance"></span>
+      </p>
+    </div>
+
+    
+  </body>
+</html>
