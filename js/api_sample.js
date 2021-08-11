@@ -1,3 +1,4 @@
+/*
 function makeBasicAuth(userid, userpw) {
   var token = userid + ':' + userpw;
   var hash = btoa(token);
@@ -146,3 +147,4 @@ function callIccardAPI(url, method, data, userid, userpw, callback) {
 	    }
 	});
 }
+*/
