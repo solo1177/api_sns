@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <title>engineer SNS</title>
     <link rel="stylesheet" type="text/css" href="css/sample.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/api_sample.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript" src="js/sns.js"></script>
   </head>
   <body>
@@ -23,15 +22,12 @@
     <h2>投稿内容</h2>
 
     <p>
-      <button onclick="getRoomStatus()">教室の情報取得</button>
+      <button onclick="gettext()">sns情報取得</button>
     </p>
 
     <div class="result">
-
-      <p>
-        a
-      </p>
-    
+      API呼び出し結果: <span id="monitoring-result"></span> <br />
+      温度: <span id="room-temperature"></span> <br />
     </div>
 
     
