@@ -15,34 +15,17 @@ function gettextAPI(url, method, callback) {
       cache: false, //cacheを使うかどうか
       dataType:'json', //data type scriptなどデータタイプの指定
 
-      success : function() {//通信が成功したときのコールバックの処理を書く
-        callback({//コールバックする内容を返す
-          status : 'success',
-          description : 'Succeeded',
-        });
-
-        var retrievedSensors = {};
-        var results = {};
+      success : function(data) {//通信が成功したときのコールバックの処理を書く
+        //取得したデータを入れる
+        var results = "";
         for (i=0; i<data.length; i++) {
-          retrievedSensors[data[i].sensor_type] = data[i].value;
+          results += data[i].text + "\n";
         }
-        requestSensorType.forEach(function(type){
-          if (retrievedSensors[type] == null) {
-            results[type] = 'none';
-          } else {
-            results[type] = retrievedSensors[type];
-          }
-        });
-        callback({
-          status : 'success',
-          description : 'Succeeded getting room status',
-          illuminance : results.illuminance,
-          humidity : results.humidity,
-          airpressure : results.airpressure,
-          temperature : results.temperature
-        });
         
-
+        callback({//コールバックする内容を返す
+          status : 'success',//ステータス
+          text : results
+        });
 	    },
 
 	    error : function(xhr) {  //通信が失敗したときのコールバックの処理を書く
