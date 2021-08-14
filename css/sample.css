@@ -1,5 +1,6 @@
 
 h1 {
+  background: #fff;
   font-family: sans-serif;
   font-size: 24px;
   text-align: center;
@@ -34,16 +35,20 @@ p {
 }
 
 button {
-  color:#fff;
+  color:#444444;
   margin-left: 5px;
   margin-bottom: 5px;
-  background-color: #333;
+  background: #b8fda3;
   border-style: none;
   border-radius: 5px;
   font-size: 12px;
-  box-shadow: 2px 2px 2px 1px #666;
+  box-shadow: 2px 2px 2px 1px #207c04;
 }
 
 button:hover {
   background-color: #59b1eb;
+}
+
+body{
+  background: #e5f7fc;
 }
