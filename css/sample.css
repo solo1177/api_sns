@@ -27,10 +27,10 @@ p {
   color: #444444;
 }
 
-.result {
-  background-color: #fff6bb;
+.text_all {
+  background-color: #bbefff;
   padding: 2px;
-  margin: 5px;
+  margin: 10px;
 }
 
 button {
