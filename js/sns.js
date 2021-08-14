@@ -11,8 +11,9 @@ function displaytext(result) {
       var resultdiv = document.getElementById("result");
 
       for (i=0; i<result.text.length; i++) { 
+
         var textdiv = document.createElement("div"); //divタグを作る
-        textdiv.className ="text_all"
+        textdiv.className ="text_all" //divのクラス名を指定
 
         //user_id
         var user_p = document.createElement("p"); //pタグを作る
@@ -31,8 +32,8 @@ function displaytext(result) {
         var text = document.createTextNode(result.text[i])
         text_p.appendChild(text);
         textdiv.appendChild(text_p);
-        console.log(textdiv)
 
+        //resultdivにdivを追加
         resultdiv.appendChild(textdiv);
       }
 

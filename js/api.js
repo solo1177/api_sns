@@ -26,7 +26,9 @@ function gettextAPI(url, method, callback) {
           user_id.push(data[i]._user_id);
           updated_at.push(data[i]._updated_at);
         }
-      
+        text.reverse();
+        user_id.reverse();
+        updated_at.reverse();
         callback({//コールバックする内容を返す
           status : 'success',//ステータス
           text : text,
