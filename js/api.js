@@ -17,18 +17,21 @@ function gettextAPI(url, method, callback) {
 
       //通信が成功したときのコールバックの処理を書く
       success : function(data) {
-        //取得したデータを入れる
+        //取得したデータから要素を取り出し、リストに入れる
         var text = [];
         var user_id = [];
         var updated_at = [];
+
         for (i=0; i<data.length; i++) {
           text.push(data[i].text);
           user_id.push(data[i]._user_id);
           updated_at.push(data[i]._updated_at);
         }
+
         text.reverse();
         user_id.reverse();
         updated_at.reverse();
+        
         callback({//コールバックする内容を返す
           status : 'success',//ステータス
           text : text,
@@ -69,14 +72,21 @@ function getuserAPI(url, method, callback) {
 
       //通信が成功したときのコールバックの処理を書く
       success : function(data) {
-        //取得したデータを入れる
-        var user = [];
+        //取得したデータから要素を取り出し、リストに入れる
+        var user_id = [];
+        var user_description = [];
+        var user_name = [];
+
         for (i=0; i<data.length; i++) {
-          user.push(data[i]);
-          }
+          user_id.push(data[i].id);
+          user_description.push(data[i].description);
+          user_name.push(data[i].name);
+        }
         callback({//コールバックする内容を返す
           status : 'success',//ステータス
-          user : user
+          user_id : user_id,
+          user_description : user_description,
+          user_name : user_name
         });
 	    },
       
