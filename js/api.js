@@ -104,20 +104,19 @@ function getuserAPI(url, method, callback) {
   }
 
     
-function posttextAPI(url, method, callback) {
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    //if(【いつデータを取得するか】) 
-    if(xhr.readyState === 4 && xhr.status === 200) {  //データ取得後の処理内容 （通信が成功した時）
-      print('Succeeded');
-    }
-  }
+function posttextAPI(url, method, data, callback) {
 
   $.ajax({
       url: url + "text", //アクセスするURLかディレクトリ
       type: method, //getかputかpost
-      cache: false, //cacheを使うかどうか
-      dataType:'json', //data type scriptなどデータタイプの指定
+      additionalProperties: false,
+      cache: false, //キャッシュを使うかどうか
+      dataType: 'json', //data type scriptなどデータタイプの指定
+      data: data,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Authorization", "HelloWorld");
+      },
+      
 
       //通信が成功したときのコールバックの処理を書く
       success : function() {
@@ -135,6 +134,5 @@ function posttextAPI(url, method, callback) {
           description : errorMsg,
         }
       )}
-      
     })
   }

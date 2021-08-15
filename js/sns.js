@@ -60,7 +60,22 @@ function getuser() {
 function posttext() {
   //url
   var url = BASE_URL;  
- posttextAPI(url, 'POST', displaytext);
+  //つぶやきの内容
+  var text = document.getElementById("posttext")
+  var text_content = text.value
+
+  var data = {
+    "properties": {
+      "text": {
+          "description": text_content,
+          "type": String,
+          "minLength": 1,
+          "maxLength": 280
+      },
+    }
+  }
+
+ posttextAPI(url, 'POST', data, displaypostresult);
 }
 
 
@@ -109,7 +124,7 @@ else {
 }
 
 
-function displaytest(result){
+function displaypostresult(result){
   if (result.status == 'success') {
     //textContent 属性
     var monitoringResults = document.getElementById("monitoring-result")
