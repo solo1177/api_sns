@@ -51,3 +51,13 @@ function gettext() {
   gettextAPI(url, 'GET', displaytext);
 }
 
+
+function getuser() {
+  //url
+  var url = BASE_URL;  
+ getuserAPI(url, 'GET', displaytest);
+}
+
+function displaytest(result){
+  console.log(result)
+}
