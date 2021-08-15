@@ -101,4 +101,40 @@ function getuserAPI(url, method, callback) {
       )}
       
     })
-}
+  }
+
+    
+function posttextAPI(url, method, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    //if(【いつデータを取得するか】) 
+    if(xhr.readyState === 4 && xhr.status === 200) {  //データ取得後の処理内容 （通信が成功した時）
+      print('Succeeded');
+    }
+  }
+
+  $.ajax({
+      url: url + "text", //アクセスするURLかディレクトリ
+      type: method, //getかputかpost
+      cache: false, //cacheを使うかどうか
+      dataType:'json', //data type scriptなどデータタイプの指定
+
+      //通信が成功したときのコールバックの処理を書く
+      success : function() {
+        callback({//コールバックする内容を返す
+          status : 'success',//ステータス
+        });
+	    },
+      
+      //通信が失敗したときのコールバックの処理を書く
+	    error : function(xhr) {  
+        var err = JSON.parse(xhr.responseText);
+        var errorMsg = '[' + err.status + '] '  + err.description ;
+        callback({
+          status : 'fail',
+          description : errorMsg,
+        }
+      )}
+      
+    })
+  }

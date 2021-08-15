@@ -13,13 +13,18 @@
     <h1>Engineer SNS</h1>
     <h2>投稿内容</h2>
 
+
+    <p>
+      <input id="posttext" type="text">
+      <button onclick="posttext()">つぶやく</button>
+    </p>
+    
     <p>
       <button onclick="gettext()">sns情報取得</button>
     </p>
     
-    <p>
-      <button onclick="getuser()">user情報取得</button>
-    </p>
+
+
     API呼び出し結果: <span id="monitoring-result">now loading...</span> <br />
 
     <div id="result">      

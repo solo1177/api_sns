@@ -57,6 +57,13 @@ function getuser() {
  getuserAPI(url, 'GET', displaytest);
 }
 
+function posttext() {
+  //url
+  var url = BASE_URL;  
+ posttextAPI(url, 'POST', displaytext);
+}
+
+
 function displaytest(result){
   if (result.status == 'success') {
     //textContent 属性
@@ -98,5 +105,20 @@ else {
   // 失敗の場合： none
   var monitoringResults = document.getElementById("monitoring-result")
   monitoringResults.textContent = String("error")
+}
+}
+
+
+function displaytest(result){
+  if (result.status == 'success') {
+    //textContent 属性
+    var monitoringResults = document.getElementById("monitoring-result")
+    //  status: API呼出結果（成功時は”success”、失敗時は”fail”）
+    monitoringResults.textContent = String("post success")
+} 
+else {
+  // 失敗の場合： none
+  var monitoringResults = document.getElementById("monitoring-result")
+  monitoringResults.textContent = String("post error")
 }
 }
