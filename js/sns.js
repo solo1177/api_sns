@@ -1,6 +1,6 @@
 var BASE_URL = "https://versatileapi.herokuapp.com/api/";
 
-function displaytext(result) {
+function displaytext(result) { //つぶやきの表示
   if (result.status == 'success') {
       //textContent 属性
       var monitoringResults = document.getElementById("monitoring-result")
@@ -21,11 +21,11 @@ function displaytext(result) {
         user_p.appendChild(user_id); //user_idをpタグの中に追加
         userdiv.appendChild(user_p); //pタグをdivに追加
 
-        //posted_at
-        var name_p = document.createElement("p");
-        var user_name = document.createTextNode(result.user_name[i])
-        name_p.appendChild(user_name)
-        userdiv.appendChild(name_p);
+        //updated_at
+        var updated_p = document.createElement("p");
+        var updated_at = document.createTextNode(result.updated_at[i])
+        updated_p.appendChild(updated_at)
+        userdiv.appendChild(updated_p);
 
         //text
         var description_p = document.createElement("p");        
@@ -44,42 +44,7 @@ function displaytext(result) {
   }
 }
 
-function gettext() {
-   //url
-   var url = BASE_URL;  
-  gettextAPI(url, 'GET', displaytext);
-}
-
-
-function getuser() {
-  //url
-  var url = BASE_URL;  
- getuserAPI(url, 'GET', displaytest);
-}
-
-function posttext() {
-  //url
-  var url = BASE_URL;  
-  //つぶやきの内容
-  var text = document.getElementById("posttext")
-  var text_content = text.value
-
-  var data = {
-    "properties": {
-      "text": {
-          "description": text_content,
-          "type": String,
-          "minLength": 1,
-          "maxLength": 280
-      },
-    }
-  }
-
- posttextAPI(url, 'POST', data, displaypostresult);
-}
-
-
-function displaytest(result){
+function displayuser(result){ //ユーザー情報の表示
   if (result.status == 'success') {
     //textContent 属性
     var monitoringResults = document.getElementById("monitoring-result")
@@ -137,3 +102,29 @@ else {
   monitoringResults.textContent = String("post error")
 }
 }
+
+
+function gettext() {
+   //url
+   var url = BASE_URL;  
+  gettextAPI(url, 'GET', displaytext);
+}
+
+function getuser() {
+  //url
+  var url = BASE_URL;  
+ getuserAPI(url, 'GET', displayuser);
+}
+
+
+function posttext() { //つぶやきの投稿
+  var url = BASE_URL;  
+  //つぶやきの内容
+  var text = document.getElementById("posttext")
+  var text_content = text.value
+  var data = {
+      "text": text_content
+  }
+ posttextAPI(url, 'POST', data, displaypostresult);
+}
+

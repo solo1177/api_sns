@@ -1,14 +1,11 @@
-function gettextAPI(url, method, callback) {
+function gettextAPI(url, method, callback) {  //つぶやきの情報取得API
   var xhr = new XMLHttpRequest();
-  //xhr.open(【どんな方法でデータを取得するか】, 【どのサーバーに対して】)
-  //xhr.send();
   xhr.onreadystatechange = function() {
     //if(【いつデータを取得するか】) 
     if(xhr.readyState === 4 && xhr.status === 200) {  //データ取得後の処理内容 （通信が成功した時）
       print('Succeeded');
     }
   }
-
   $.ajax({
       url: url + "text/all", //アクセスするURLかディレクトリ
       type: method, //getかput
@@ -53,17 +50,14 @@ function gettextAPI(url, method, callback) {
     })
 }
 
-function getuserAPI(url, method, callback) {
+function getuserAPI(url, method, callback) {  //ユーザー情報取得API
   var xhr = new XMLHttpRequest();
-  //xhr.open(【どんな方法でデータを取得するか】, 【どのサーバーに対して】)
-  //xhr.send();
   xhr.onreadystatechange = function() {
     //if(【いつデータを取得するか】) 
     if(xhr.readyState === 4 && xhr.status === 200) {  //データ取得後の処理内容 （通信が成功した時）
       print('Succeeded');
     }
   }
-
   $.ajax({
       url: url + "user/all", //アクセスするURLかディレクトリ
       type: method, //getかput
@@ -104,15 +98,15 @@ function getuserAPI(url, method, callback) {
   }
 
     
-function posttextAPI(url, method, data, callback) {
-
+function posttextAPI(url, method, data, callback) { //つぶやきの投稿API
   $.ajax({
       url: url + "text", //アクセスするURLかディレクトリ
       type: method, //getかputかpost
       additionalProperties: false,
       cache: false, //キャッシュを使うかどうか
       dataType: 'json', //data type scriptなどデータタイプの指定
-      data: data,
+      data: JSON.stringify(data),
+
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Authorization", "HelloWorld");
       },
