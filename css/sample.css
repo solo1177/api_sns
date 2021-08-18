@@ -24,7 +24,7 @@ p {
 .text_all {
   border: solid 1px #32d400;
   padding: 2px;
-  margin: 10px;
+  margin: 35px;
 }
 
 button {
@@ -48,4 +48,11 @@ body{
 
 a{
   color: #e2e2e2;
+  text-decoration: none;
+  border: solid 1px #32d400;
+  padding: 4px;
+}
+
+a:hover {
+  background-color: #207c04;
 }
